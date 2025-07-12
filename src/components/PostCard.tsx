@@ -1,4 +1,5 @@
-import { useState, type FC } from "react";
+import { useState } from "react";
+import type { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Post, Comment } from "../types";
 import { fetchCommentsByPostId } from "../services/api";
@@ -17,10 +18,6 @@ const PostCard: FC<Props> = ({ post, index }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [comments, setComments] = useState<Comment[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  const openInNewTab = () => {
-    window.open(`/post/${post.id}`, "_blank");
-  };
 
   const handleOpenComments = async () => {
     setIsLoading(true);

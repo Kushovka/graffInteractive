@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchCommentsByPostId, fetchPostById } from "../services/api";
 import Loader from "../components/Loader";
-import type { Post } from "../types";
+import type { Comment, Post } from "../types";
 import { motion } from "framer-motion";
 
 const PostPage = () => {

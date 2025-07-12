@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { motion } from "framer-motion";
+import type { FC } from "react";
 
 type Comment = {
   id: number;
@@ -14,7 +14,11 @@ type CommentsModalProps = {
   comments: Comment[];
 };
 
-const CommentsModal: FС<CommentsModalProps> = ({ isOpen, onClose, comments }) => {
+const CommentsModal: FC<CommentsModalProps> = ({
+  isOpen,
+  onClose,
+  comments,
+}) => {
   if (!isOpen) return null;
 
   return (
@@ -27,7 +31,10 @@ const CommentsModal: FС<CommentsModalProps> = ({ isOpen, onClose, comments }) =
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg text-white font-semibold">Комментарии</h2>
-          <button onClick={onClose} className="text-grey02 hover:text-white transition-colors duration-300">
+          <button
+            onClick={onClose}
+            className="text-grey02 hover:text-white transition-colors duration-300"
+          >
             ✖
           </button>
         </div>
@@ -41,7 +48,9 @@ const CommentsModal: FС<CommentsModalProps> = ({ isOpen, onClose, comments }) =
                 <p className="font-semibold text-white md:text-[16px] text-[12px]">
                   {comment.name} ({comment.email})
                 </p>
-                <p className="text-grey02 md:text-[16px] text-[12px]">{comment.body}</p>
+                <p className="text-grey02 md:text-[16px] text-[12px]">
+                  {comment.body}
+                </p>
               </li>
             ))}
           </ul>
