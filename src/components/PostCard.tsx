@@ -49,24 +49,24 @@ const PostCard: FC<Props> = ({ post, index }) => {
         </p>
       </div>
       <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-center gap-2 border border-grey02 rounded-[10px] p-[8px] group cursor-pointer">
-          <button
-            onClick={() => navigate(`/post/${post.id}`)}
-            className="text-grey02 hidden md:block group-hover:text-white transition-colors duration-300 xl:text-[20px] lg:text-[18px] md:text-[16px] text-[14px]"
-          >
-            Подробнее
-          </button>
+        <button
+          onClick={() => navigate(`/post/${post.id}`)}
+          className="text-grey02 group-hover:text-white transition-colors duration-300 xl:text-[16px] lg:text-[18px] md:text-[12px] text-[16px] flex items-center justify-center gap-2 border border-grey02 rounded-[10px] p-[8px] group cursor-pointer"
+        >
+          <h2 className=" hidden md:block">Подробнее</h2>
           <SlMagnifier className="xl:w-[24px] lg:w-[20px] md:w-[18px] w-[16px] text-grey02 group-hover:text-white transition-colors duration-300" />
-        </div>
-        <div className="flex items-center justify-center gap-2 border border-grey02 rounded-[10px] p-[8px] group cursor-pointer">
-          <button
-            onClick={handleOpenComments}
-            className="text-grey02 group-hover:text-white transition-colors duration-300 xl:text-[20px] lg:text-[18px] md:text-[14px] text-[12px]  hidden md:block"
-          >
+        </button>
+
+        <button
+          onClick={handleOpenComments}
+          className="text-grey02 group-hover:text-white transition-colors duration-300 xl:text-[16px] lg:text-[18px] md:text-[12px] text-[16px] flex items-center justify-center gap-2 border border-grey02 rounded-[10px] p-[8px] group cursor-pointer"
+        >
+          <h2 className="hidden md:block">
+            {" "}
             {isLoading ? "Загрузка..." : "Комментарии"}
-          </button>
-          <FaRegComment className="xl:w-[24px] lg:w-[20px] md:w-[18px] w-[16px] text-grey02 group-hover:text-white transition-colors duration-300" />
-        </div>
+          </h2>
+          <FaRegComment className=" text-grey02 group-hover:text-white transition-colors duration-300" />
+        </button>
       </div>
 
       <CommentsModal
